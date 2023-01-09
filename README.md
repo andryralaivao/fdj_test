@@ -41,3 +41,4 @@ Pour cela, vous pouvez modifier le fichier du frontend `frontend/src/app/pages/p
 
 - Exporter les configurations dans des variables d'envionnement configurables au lancement du projet
 - Fournir un système de caching plus performant pour le deploiement
+- Mettre en place et finaliser les tests unitaire pour le back
