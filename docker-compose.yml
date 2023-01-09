@@ -1,0 +1,78 @@
+version: "3.4"
+
+services:
+  fdj_backend_dev:
+    build:
+      context: ./backend
+      target: fdj_backend_dev
+    depends_on:
+      - fdj_database
+    ports:
+      - 3000:3000
+    container_name: fdj_backend
+    environment:
+      NODE_ENV: 'development'
+    networks:
+      - fdj_network
+      - minikube
+    volumes:
+      - ./backend:/app:rw
+      - ./backend/node_modules:/app/node_modules
+
+  fdj_backend:
+    build:
+      context: ./backend
+      target: fdj_prod
+    depends_on:
+      - fdj_database
+    ports:
+      - 8000:8000
+    container_name: fdj_backend
+    environment:
+      NODE_ENV: 'production'
+    networks:
+      - fdj_network
+      - minikube
+
+  fdj_frontend_dev:
+    build:
+      context: ./frontend
+      target: fdj_frontend_dev
+    ports:
+      - 4200:4200
+    container_name: fdj_frontend
+    networks:
+      - fdj_network
+    volumes:
+      - ./frontend:/app:rw
+      - ./frontend/node_modules:/app/node_modules
+
+  fdj_frontend:
+    build:
+      context: ./frontend
+      target: fdj_frontend
+    ports:
+      - 4200:4200
+    container_name: fdj_frontend
+    networks:
+      - fdj_network
+
+  fdj_database:
+    image: mongo
+    #TODO: set access restriction
+    #environment:
+      #MONGO_INITDB_ROOT_USERNAME: root
+      #MONGO_INITDB_ROOT_PASSWORD: toor
+    container_name: fdj_database
+    ports:
+      - 27017:27017
+    networks:
+      - fdj_network
+
+networks:
+  fdj_network:
+    # external: true
+    name: fdj_network
+  minikube:
+    # external: true
+    name: minikube
