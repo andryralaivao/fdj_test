@@ -1,0 +1,5 @@
+.search-result .card{
+    padding: .5em;
+    margin-bottom: .5em;
+    cursor: pointer;
+}

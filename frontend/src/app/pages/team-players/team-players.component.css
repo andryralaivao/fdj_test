@@ -1,0 +1,13 @@
+.navbar-content{
+    display: flex;
+    width: 100%;
+}
+
+.navbar-content .action{
+    cursor: pointer;
+}
+
+.navbar-content .title{
+    flex-grow: 1;
+    text-align: center;
+}

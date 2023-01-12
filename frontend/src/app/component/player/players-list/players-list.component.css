@@ -1,0 +1,18 @@
+.player_badge{
+    padding: 1em;
+}
+
+.player_badge .row{
+    padding: 1em;
+    color: black;
+    background-color: #efefef;
+}
+
+.player_position, .player_born, .player_price{
+    color: #777;
+}
+
+.badge_thumbnail{
+    max-width: 100%;
+    max-height: 10em;
+}

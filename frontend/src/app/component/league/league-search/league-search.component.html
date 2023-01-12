@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+        </div>
+        <input type="text" class="form-control" #leagueSearchInput id="leagueSearchInput" placeholder="Search by league"
+            autocomplete="off">
+    </div>
+</nav>
+
+<div class="search-result" *ngIf="displayResults">
+    <div *ngFor="let league of leagues" tappable class="card" (click)="goToLeague(league._id)">
+        {{ league.name }}
+    </div>
+    <p class="search" [hidden]="!isLoading">Searching leagues...</p>
+</div>
